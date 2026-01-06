@@ -1,0 +1,10 @@
+print("Creacion de set por medio de tuplas")
+primos = (7, 3, 5, 2, 7, 5, 13, 11, 19, 2, 2, 2, 5, 5)
+print(f"El contenido de la variable primos {primos}")
+print(f"Cantidad de elementos de la variable primos {len(primos)})")
+print(f"Tipo de datos de la variable primos {type(primos)}")
+
+primos_unicos = set(primos)
+print(f"El contenido de la variable primos_unicos {primos_unicos}")
+print(f"Cantidad de elementos de la variable primos_unicos {len(primos_unicos)})")
+print(f"Tipo de datos de la variable primos_unicos {type(primos_unicos)}")
