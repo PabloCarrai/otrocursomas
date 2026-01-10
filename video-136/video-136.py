@@ -1,0 +1,12 @@
+#   Operador de Distinto !=
+print("Operadores de comparacion  Distinto !=")
+numero1 = 1
+numero2 = 3
+print(f"{numero1} es Distinto a {numero2} {numero1!=numero2}")
+numero3 = 1
+print(f"{numero1} es Distinto a {numero3} {numero1!=numero3}")
+nombre = "Daniela"
+nombre1 = "daniela"
+print(f"{nombre} es Distinto a {nombre1} {nombre!=nombre1}")
+nombre2="Daniela"
+print(f"{nombre} es Distinto a {nombre2} {nombre!=nombre2}")
