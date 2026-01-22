@@ -5,10 +5,10 @@ valorAleatorio = rd(1, 10)
 valorElegido = int(input("Adivina un numero del 1 al 10  "))
 if valorAleatorio == valorElegido:
     print(
-        f"El numero elegido es {valorAleatorio} y tu elegistes {valorElegido} has acertado"
+        f"El numero elegido es {valorAleatorio} y tu elegiste {valorElegido} has acertado"
     )
 else:
     print(
-        f"El numero elegido es {valorAleatorio} y tu elegistes {valorElegido} no acertaste"
+        f"El numero elegido es {valorAleatorio} y tu elegiste {valorElegido} no acertaste"
     )
 
