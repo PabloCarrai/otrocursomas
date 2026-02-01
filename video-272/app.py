@@ -17,4 +17,6 @@ def main():
     saludar(saludo)
 
 
-main()
+#   Este es el punto de entrada
+if __name__ == "__main__":
+    main()
