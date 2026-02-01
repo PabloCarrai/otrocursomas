@@ -5,7 +5,7 @@ def sumarNumeros(numeros):
     """
     Realiza una suma de todos los elementos de una lista o tupla
 
-    :param numeros: Descripción
+    :param numeros: lista o tupla con numeros
 
     Returns: Devuelve total con la sumatoria de todos los elementos
     """
