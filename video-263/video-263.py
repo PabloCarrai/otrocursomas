@@ -3,7 +3,7 @@
 
 def invertirCadena(cadena):
     """
-    Invierte un string pasado como argumento invertirCadena
+    Invierte un string pasado como argumento
 
     :param cadena: Es el string a invertir, tiene que ser str porque sino falla
     Returns:
@@ -12,7 +12,7 @@ def invertirCadena(cadena):
     if isinstance(cadena, (str)):
         return cadena[::-1]
     else:
-        raise ValueError("El argumento tiene que ser una cadena(str())")
+        raise TypeError("El argumento tiene que ser una cadena(str())")
 
 
 try:
@@ -20,7 +20,7 @@ try:
     resultado = invertirCadena(cadena)
     print(f"Original --- {cadena}")
     print(f"Invertido --- {resultado}")
-except ValueError as e:
+except TypeError as e:
     print(f"Error {e}")
 
 
@@ -31,5 +31,5 @@ try:
     resultado1 = invertirCadena(cadena1)
     print(f"Original --- {cadena1}")
     print(f"Invertido --- {resultado1}")
-except ValueError as e:
+except TypeError as e:
     print(f"Error {e}")
