@@ -16,12 +16,12 @@ def main():
             try:
                 opcion = int(input("Escriba la operacion a Ejecutar:  "))
                 break
-            except TypeError as e:
+            except Exception as e:
                 print(f"Error {e}, ha digitado un valor invalido")
         print()
         if opcion == 0:
             break
-        elif 1 <= opcion <= 4:
+        if 1 <= opcion <= 4:
             while True:
                 try:
                     numero_1 = int(input("Escriba el numero 1:  "))
@@ -36,17 +36,25 @@ def main():
                 except TypeError as e:
                     print(f"Error {e}, ha digitado un valor invalido")
 
-        elif opcion == 1:
+        if opcion == 1:
             resultado = sumar(numero_1, numero_2)
+            print(f"{numero_1} + {numero_2} = {resultado}")
         elif opcion == 2:
             resultado = restar(numero_1, numero_2)
+            print(f"{numero_1} - {numero_2} = {resultado}")
         elif opcion == 3:
             resultado = multiplicar(numero_1, numero_2)
+            print(f"{numero_1} * {numero_2} = {resultado}")
         elif opcion == 4:
             try:
                 resultado = dividir(numero_1, numero_2)
+                print(f"{numero_1} / {numero_2} = {resultado}")
             except ZeroDivisionError as e:
                 print(f"Error {e}")
-
+        print()
     print()
     print("El programa ha terminado ")
+
+
+if __name__ == "__main__":
+    main()
