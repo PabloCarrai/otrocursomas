@@ -117,3 +117,16 @@ def top_5_menos_vendidos(ventas):
     }
     contador = Counter(conteo_ventas)
     return contador.most_common()[:-6:-1]
+
+
+def mostrar_datos_producto(producto):
+    """
+    Muestra datos particulares de un producto
+
+    :param producto: Producto a consultar los datos
+    """
+    print(f"ID: {producto["id_producto"]}")
+    print(f"Nombre: {producto["nombre"]}")
+    print(f"Precio: ${producto["precio"]}")
+    print(f"Cantidad: {producto["cantidad"]}")
+    print(f"Disponible?: {"Si" if producto["disponible"] else "No"}")

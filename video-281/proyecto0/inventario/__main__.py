@@ -74,6 +74,11 @@ def capturar_cadena(mensaje):
         print()
 
 
+def listar_productos(productos):
+    for p in productos:
+        print(f"{p["id_producto"]}- {p["nombre"]}")
+
+
 def main():
     productos = []
     ventas = []
@@ -136,10 +141,50 @@ def main():
 
         if opcion == 2:
             if len(productos):
-                pass
+                while True:
+                    listar_productos(productos)
+                    id_producto = capturar_entero("Digite el ID del producto")
+                    producto = buscar_productos(productos, id_producto)
+                    if producto:
+                        break
+                    else:
+                        print("Mensaje: Debe escribir un ID de producto existente")
+
+                while True:
+                    cantidad_producto = capturar_entero(
+                        "Digite la cantidad del nuevo producto"
+                    )
+                    if cantidad_producto >= 0:
+                        if cantidad_producto <= producto["cantidad"]:
+                            break
+                        else:
+                            print(
+                                f"No existe cantidad suficiente para la venta, solo hay {producto["cantidad"]}"
+                            )
+                    else:
+                        print("Debe digitar una cantidad positiva")
+                nueva_venta = {
+                    "id_producto": id_producto,
+                    "cantidad": cantidad_producto,
+                    "total_sin_iva": producto["precio"] * cantidad_producto,
+                }
+                realizar_venta(ventas, nueva_venta)
+                print("La venta se ha realizado de forma satisfactoria")
             else:
                 print("Aun no ha registrado productos.")
-
+        elif opcion == 3:
+            if len(productos):
+                while True:
+                    listar_productos(productos)
+                    id_producto = capturar_entero("Digite el ID del producto")
+                    producto = buscar_productos(productos, id_producto)
+                    if producto:
+                        break
+                    else:
+                        print("Mensaje: Debe escribir un ID de producto existente")
+                
+            else:
+                print("Aun no ha registrado productos.")
     print()
     print("El programa ha finalizado")
 
