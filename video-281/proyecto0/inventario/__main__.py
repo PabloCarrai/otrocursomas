@@ -134,6 +134,12 @@ def main():
             registrar_producto(producto, nuevo_producto)
             print("El producto se ha creado de forma satisfactoria")
 
+        if opcion == 2:
+            if len(productos):
+                pass
+            else:
+                print("Aun no ha registrado productos.")
+
     print()
     print("El programa ha finalizado")
 
