@@ -7,6 +7,7 @@ from inventario_funciones import (
     top_5_mas_vendidos,
     top_5_menos_vendidos,
     mostrar_datos_producto,
+    mostrar_datos_venta,
     datetime,
 )
 
@@ -205,18 +206,56 @@ def main():
                 print("Aun no ha registrado productos.")
         elif opcion == 5:
             if len(productos):
-                while True:
-                    try:
-                        fecha_inicio = capturar_cadena(
-                            "Digite la fecha de inicio(AAAA-MM-DD)"
-                        )
-                        fecha_inicio = datetime.datetime.strptime(fecha_inicio, "%Y-%m-%d")
-                        break
-                    except ValueError:
-                        print(
-                            "Error: Debe digitar una fecha valida con el formato AAAA-MM-DD"
-                        )
-                        print()
+                if len(ventas):
+                    while True:
+                        try:
+                            fecha_inicio = capturar_cadena(
+                                "Digite la fecha de inicio(AAAA-MM-DD)"
+                            )
+                            fecha_inicio = datetime.datetime.strptime(
+                                fecha_inicio, "%Y-%m-%d"
+                            )
+                            break
+                        except ValueError:
+                            print(
+                                "Error: Debe digitar una fecha valida con el formato AAAA-MM-DD"
+                            )
+                            print()
+
+                    while True:
+                        try:
+                            fecha_final = capturar_cadena(
+                                "Digite la fecha de final(AAAA-MM-DD)"
+                            )
+                            fecha_final = datetime.datetime.strptime(
+                                fecha_final, "%Y-%m-%d"
+                            )
+                            break
+                        except ValueError:
+                            print(
+                                "Error: Debe digitar una fecha valida con el formato AAAA-MM-DD"
+                            )
+                            print()
+                    ventas_rango = [
+                        ventas_rango_fecha(ventas, fecha_inicio, fecha_final)
+                    ]
+                    if len(ventas_rango):
+                        for v in ventas_rango:
+                            mostrar_datos_venta(v)
+                            print()
+                    else:
+                        print("No hay ventas para el rango seleccionado")
+                else:
+                    print("Aun no ha registrado ninguna venta.")
+            else:
+                print("Aun no ha registrado productos.")
+        elif opcion == 6:
+            if len(productos):
+                if len(ventas):
+                    productos_vendidos = top_5_mas_vendidos(ventas)
+                    
+                else:
+                    print("Aun no ha registrado ninguna venta.")
             else:
                 print("Aun no ha registrado productos.")
 

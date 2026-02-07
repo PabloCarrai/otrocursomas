@@ -130,3 +130,23 @@ def mostrar_datos_producto(producto):
     print(f"Precio: ${producto["precio"]}")
     print(f"Cantidad: {producto["cantidad"]}")
     print(f"Disponible?: {"Si" if producto["disponible"] else "No"}")
+
+
+def mostrar_datos_venta(venta):
+    """
+    Muestra datos particulares de una venta
+
+    :param venta: Venta a consultar los datos
+    """
+    print(f"ID: {venta["id_producto"]}")
+    print(f"Fecha: {venta["fecha"]}")
+    print(f"Cantidad: ${venta["cantidad"]}")
+    print(f"Total sin Iva: {venta["total_sin_iva"]}")
+    print(f"Total: {venta["total_sin_iva"]}*1.19")
+    print()
+    print("Datos del producto:")
+    mostrar_datos_producto(venta["id_producto"])
+
+
+def mostrar_datos_venta_producto(datos_venta):
+    pass
