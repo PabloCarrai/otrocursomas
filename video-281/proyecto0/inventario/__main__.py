@@ -15,264 +15,390 @@ from inventario_funciones import (
 
 def mostrar_menu():
     """
-    Muestra menu de opciones disponibles
+    Muestra el menú de las operaciones disponibles.
     """
-    print("1. Registrar nuevo producto  ")
-    print("2. Vender un producto  ")
-    print("3. Buscar un producto por su codigo  ")
-    print("4. Cambiar disponibilidad de un producto  ")
-    print("5. Productos vendidos en un rango de fechas  ")
-    print("6. Top 5 de productos mas vendidos  ")
-    print("7. Top 5 de productos menos vendidos  ")
-    print("0. Salir  ")
+    print("1. Registrar nuevo producto")
+    print("2. Vender un producto")
+    print("3. Buscar un producto por su código")
+    print("4. Cambiar disponibilidad de un producto")
+    print("5. Productos vendidos en un rango de fechas")
+    print("6. Ver top 5 de los productos más vendidos")
+    print("7. Ver top 5 de los productos menos vendidos")
+    print("0. Salir")
 
 
 def capturar_entero(mensaje):
     """
-    Captura un numero entero, valida el ingreso de datos
+    Captura un número entero. Valida el ingreso de datos.
+
     Parameters:
-    mensaje: Mensaje o texto personalizado a mostrar para la captura de un numero entero.
+    mensaje: Mensaje o texto personalizado a mostrar para la captura de un número.
+
     Returns:
-    Numero entero resultado de la captura
+    Número entero resultado de la captura.
     """
     while True:
         try:
-            numero = int(input(f"{mensaje: }"))
+            numero = int(input(f"{mensaje}: "))
+
             return numero
         except ValueError:
-            print("Error debe digitar un numero entero.")
+            print("ERROR: Debe digitar un número entero.")
+
         print()
 
 
 def capturar_real(mensaje):
     """
-    Captura un numero real, valida el ingreso de datos
+    Captura un número real. Valida el ingreso de datos.
+
     Parameters:
-    mensaje: Mensaje o texto personalizado a mostrar para la captura de un numero real.
+    mensaje: Mensaje o texto personalizado a mostrar para la captura de un número.
+
     Returns:
-    Numero entero resultado de la captura
+    Número real resultado de la captura.
     """
     while True:
         try:
-            numero = float(input(f"{mensaje: }"))
+            numero = float(input(f"{mensaje}: "))
+
             return numero
         except ValueError:
-            print("Error debe digitar un numero entero.")
+            print("ERROR: Debe digitar un número real.")
+
         print()
 
 
 def capturar_cadena(mensaje):
     """
-    Captura un cadena de caracteres, valida el ingreso de datos
+    Captura una cadena de caracteres. Valida el ingreso de datos.
+
     Parameters:
-    mensaje: Mensaje o texto personalizado a mostrar para la captura de un cadena de caracteres.
+    mensaje: Mensaje o texto personalizado a mostrar para la captura de una cadena de caracteres.
+
     Returns:
-    Cadena de caracteres resultado de la captura
+    Cadena de caracteres.
     """
     while True:
-        cadena = input(f"{mensaje: }").strip()
-        if len(cadena) != 0:
+        cadena = input(f"{mensaje}: ").strip()
+
+        if len(cadena):
             return cadena
         else:
-            print("Debe digitar una cadena de caracteres con texto")
+            print("MENSAJE: Debe digitar una cadena de caracteres con texto.")
+
         print()
 
 
 def listar_productos(productos):
+    """
+    Muestra un listado de productos.
+
+    Parameters:
+    productos: Lista de productos.
+    """
     for p in productos:
-        print(f"{p["id_producto"]}- {p["nombre"]}")
+        print(f"{p['id_producto']} - {p['nombre']}")
+
+
+def continuar():
+    """
+    Muestra mensaje de continuación en la consola.
+    """
+    print()
+    print("Presione Enter para continuar...", end="")
+    input()
+    print()
 
 
 def main():
+    """
+    Punto de entrada a la aplicación.
+    """
     productos = []
     ventas = []
+
     while True:
         while True:
             try:
                 mostrar_menu()
-                opcion = int(input("Digite una opcion:    "))
+                opcion = int(input("Digite la opción: "))
                 if 0 <= opcion <= 7:
                     break
                 else:
-                    print("Debe digitar un numero mayor o igual a 0 o igual a 7. ")
-            except ValueError as e:
-                print("Error debe digitar un entero valido   ")
+                    print(
+                        "MENSAJE: Debe digitar un número mayor o igual a 0 y menor o igual a 7."
+                    )
+            except ValueError:
+                print()
+                print("ERROR: Debe digitar un número entero válido.")
+
+            continuar()
+
+        print()
+
         if opcion == 0:
             break
         elif opcion == 1:
             while True:
-                id_producto = capturar_entero("Ingrese el id del nuevo producto:")
-                producto = buscar_productos(productos, id_producto)
-                if producto is None:
-                    break
+                id_producto = capturar_entero("Digite el ID del nuevo producto")
+
+                if id_producto > 0:
+                    producto = buscar_productos(productos, id_producto)
+
+                    if producto is None:
+                        break
+                    else:
+                        print()
+                        print("MENSAJE: Ya existe un producto con el ID digitado.")
                 else:
-                    print("Ya existe un producto con el id Digitado")
+                    print()
+                    print("MENSAJE: El ID del producto debe ser un número positivo.")
+
+                continuar()
+
             nombre_producto = capturar_cadena("Digite el nombre del nuevo producto")
 
             while True:
-                precio = capturar_real("Digite el precio del nuevo producto")
-                if precio > 0:
+                precio_producto = capturar_real("Digite el precio del nuevo producto")
+
+                if precio_producto > 0:
                     break
                 else:
-                    print("Debe digitar un precio de producto mayor a 0")
+                    print()
+                    print("MENSAJE: Debe digitar un precio positivo para el producto.")
+
+                continuar()
+
             while True:
                 cantidad_producto = capturar_entero(
                     "Digite la cantidad del nuevo producto"
                 )
-                if cantidad_producto >= 0:
+
+                if cantidad_producto > 0:
                     break
                 else:
-                    print("Debe digitar una cantidad positiva")
+                    print()
+                    print(
+                        "MENSAJE: Debe digitar una cantidad positiva para el producto."
+                    )
+
+                continuar()
+
             while True:
-                print("1.Disponible")
-                print("2.No Disponible")
+                print("1. Disponible")
+                print("2. No Disponible")
                 disponible = capturar_entero(
-                    "Digite la opcion para la disponibilidad del producto"
+                    "Digite la opción para la disponibilidad del producto"
                 )
+
                 if disponible == 1 or disponible == 2:
                     disponible = disponible == 1
                     break
+                else:
+                    print()
+                    print(
+                        "MENSAJE: La opción {} de disponibilidad no existe.".format(
+                            disponible
+                        )
+                    )
+
+                continuar()
 
             nuevo_producto = {
                 "id_producto": id_producto,
                 "nombre": nombre_producto,
-                "precio": precio,
+                "precio": precio_producto,
                 "cantidad": cantidad_producto,
                 "disponible": disponible,
             }
-            registrar_producto(producto, nuevo_producto)
-            print("El producto se ha creado de forma satisfactoria")
 
+            registrar_producto(productos, nuevo_producto)
+
+            print()
+            print("MENSAJE: El producto se ha creado de forma satisfactoria.")
         if opcion == 2:
             if len(productos):
                 while True:
                     listar_productos(productos)
                     id_producto = capturar_entero("Digite el ID del producto")
+
                     producto = buscar_productos(productos, id_producto)
+
                     if producto:
                         break
                     else:
-                        print("Mensaje: Debe escribir un ID de producto existente")
+                        print()
+                        print("MENSAJE: Debe escribir un ID de producto existente.")
 
                 while True:
                     cantidad_producto = capturar_entero(
-                        "Digite la cantidad del nuevo producto"
+                        "Digite la cantidad del producto"
                     )
-                    if cantidad_producto >= 0:
+
+                    if cantidad_producto > 0:
                         if cantidad_producto <= producto["cantidad"]:
                             break
                         else:
+                            print()
                             print(
-                                f"No existe cantidad suficiente para la venta, solo hay {producto["cantidad"]}"
+                                "MENSAJE: No existe cantidad suficiente para la venta. Sólo hay {} unidades.".format(
+                                    producto["cantidad"]
+                                )
                             )
                     else:
-                        print("Debe digitar una cantidad positiva")
+                        print()
+                        print(
+                            "MENSAJE: Debe digitar una cantidad positiva para el producto."
+                        )
+
+                    continuar()
+
                 nueva_venta = {
                     "id_producto": id_producto,
                     "cantidad": cantidad_producto,
                     "total_sin_iva": producto["precio"] * cantidad_producto,
                 }
+
                 realizar_venta(ventas, nueva_venta)
-                print("La venta se ha realizado de forma satisfactoria")
+
+                print("Total: $%.2f" % (nueva_venta["total_sin_iva"] * 1.19))
+
+                print()
+                print("MENSAJE: La venta se ha realizado de forma satisfactoria.")
             else:
-                print("Aun no ha registrado productos.")
+                print()
+                print("MENSAJE: Aún no ha registrado productos.")
         elif opcion == 3:
             if len(productos):
                 while True:
                     listar_productos(productos)
                     id_producto = capturar_entero("Digite el ID del producto")
+
                     producto = buscar_productos(productos, id_producto)
+
                     if producto:
                         break
                     else:
-                        print("Mensaje: Debe escribir un ID de producto existente")
-                mostrar_datos_producto(producto)
+                        print()
+                        print("MENSAJE: Debe escribir un ID de producto existente.")
 
+                    continuar()
+
+                print()
+                mostrar_datos_producto(producto)
             else:
-                print("Aun no ha registrado productos.")
+                print()
+                print("MENSAJE: Aún no ha registrado productos.")
         elif opcion == 4:
             if len(productos):
                 while True:
                     listar_productos(productos)
                     id_producto = capturar_entero("Digite el ID del producto")
+
                     producto = buscar_productos(productos, id_producto)
+
                     if producto:
                         break
                     else:
-                        print("Mensaje: Debe escribir un ID de producto existente")
+                        print()
+                        print("MENSAJE: Debe escribir un ID de producto existente.")
+
+                    continuar()
+
                 cambiar_estado_producto(producto)
                 mostrar_datos_producto(producto)
-
             else:
-                print("Aun no ha registrado productos.")
+                print()
+                print("MENSAJE: Aún no ha registrado productos.")
         elif opcion == 5:
             if len(productos):
                 if len(ventas):
                     while True:
                         try:
                             fecha_inicio = capturar_cadena(
-                                "Digite la fecha de inicio(AAAA-MM-DD)"
+                                "Digite la fecha de inicio (AAAA-MM-DD)"
                             )
+
                             fecha_inicio = datetime.datetime.strptime(
                                 fecha_inicio, "%Y-%m-%d"
                             )
                             break
                         except ValueError:
-                            print(
-                                "Error: Debe digitar una fecha valida con el formato AAAA-MM-DD"
-                            )
                             print()
+                            print(
+                                "ERROR: Debe digitar una fecha válida con el formato AAAA-MM-DD."
+                            )
+
+                        print()
 
                     while True:
                         try:
                             fecha_final = capturar_cadena(
-                                "Digite la fecha de final(AAAA-MM-DD)"
+                                "Digite la fecha final (AAAA-MM-DD)"
                             )
+
                             fecha_final = datetime.datetime.strptime(
                                 fecha_final, "%Y-%m-%d"
                             )
                             break
                         except ValueError:
-                            print(
-                                "Error: Debe digitar una fecha valida con el formato AAAA-MM-DD"
-                            )
                             print()
-                    ventas_rango = [
-                        ventas_rango_fecha(ventas, fecha_inicio, fecha_final)
-                    ]
+                            print(
+                                "ERROR: Debe digitar una fecha válida con el formato AAAA-MM-DD."
+                            )
+
+                        print()
+
+                    ventas_rango = ventas_rango_fecha(ventas, fecha_inicio, fecha_final)
+
                     if len(ventas_rango):
                         for v in ventas_rango:
-                            mostrar_datos_venta(v)
+                            mostrar_datos_venta(productos, v)
                             print()
                     else:
-                        print("No hay ventas para el rango seleccionado")
+                        print()
+                        print("MENSAJE: No hay ventas para el rango seleccionado.")
                 else:
-                    print("Aun no ha registrado ninguna venta.")
+                    print()
+                    print("MENSAJE: Aún no ha efectuado ninguna venta.")
             else:
-                print("Aun no ha registrado productos.")
+                print()
+                print("MENSAJE: Aún no ha registrado productos.")
         elif opcion == 6:
             if len(productos):
                 if len(ventas):
                     productos_vendidos = top_5_mas_vendidos(ventas)
+
+                    print("Top 5 de los productos más vendidos")
                     for p in productos_vendidos:
-                        mostrar_datos_producto(p)
+                        mostrar_datos_venta_producto(productos, p)
+                        print()
                 else:
-                    print("Aun no ha registrado ninguna venta.")
+                    print()
+                    print("MENSAJE: Aún no ha efectuado ninguna venta.")
             else:
-                print("Aun no ha registrado productos.")
+                print()
+                print("MENSAJE: Aún no ha registrado productos.")
         elif opcion == 7:
             if len(productos):
                 if len(ventas):
                     productos_vendidos = top_5_menos_vendidos(ventas)
-                    for p in productos_vendidos:
-                        mostrar_datos_producto(p)
-                else:
-                    print("Aun no ha registrado ninguna venta.")
-            else:
-                print("Aun no ha registrado productos.")
 
+                    print("Top 5 de los productos menos vendidos")
+                    for p in productos_vendidos:
+                        mostrar_datos_venta_producto(productos, p)
+                        print()
+                else:
+                    print()
+                    print("MENSAJE: Aún no ha efectuado ninguna venta.")
+            else:
+                print()
+                print("MENSAJE: Aún no ha registrado productos.")
+
+        continuar()
     print()
-    print("El programa ha finalizado")
+    print("El programa ha finalizado.")
 
 
 if __name__ == "__main__":
