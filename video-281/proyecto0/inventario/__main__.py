@@ -8,6 +8,7 @@ from inventario_funciones import (
     top_5_menos_vendidos,
     mostrar_datos_producto,
     mostrar_datos_venta,
+    mostrar_datos_venta_producto,
     datetime,
 )
 
@@ -93,7 +94,7 @@ def main():
                 if 0 <= opcion <= 7:
                     break
                 else:
-                    print("Debe digitar un numero mayor o igual a 0")
+                    print("Debe digitar un numero mayor o igual a 0 o igual a 7. ")
             except ValueError as e:
                 print("Error debe digitar un entero valido   ")
         if opcion == 0:
@@ -253,7 +254,18 @@ def main():
             if len(productos):
                 if len(ventas):
                     productos_vendidos = top_5_mas_vendidos(ventas)
-                    
+                    for p in productos_vendidos:
+                        mostrar_datos_producto(p)
+                else:
+                    print("Aun no ha registrado ninguna venta.")
+            else:
+                print("Aun no ha registrado productos.")
+        elif opcion == 7:
+            if len(productos):
+                if len(ventas):
+                    productos_vendidos = top_5_menos_vendidos(ventas)
+                    for p in productos_vendidos:
+                        mostrar_datos_producto(p)
                 else:
                     print("Aun no ha registrado ninguna venta.")
             else:

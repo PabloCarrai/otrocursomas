@@ -149,4 +149,6 @@ def mostrar_datos_venta(venta):
 
 
 def mostrar_datos_venta_producto(datos_venta):
-    pass
+    producto = buscar_productos(datos_venta[0])
+    mostrar_datos_producto(producto)
+    print(f"Cantidad vendida: {datos_venta[1]}")
