@@ -7,6 +7,7 @@ from PyQt5.QtWidgets import (
     QMainWindow,
     QPushButton,
 )
+from PyQt5.QtGui import QDoubleValidator
 
 
 class CalculadoraVentana(QMainWindow):
@@ -24,6 +25,7 @@ class CalculadoraVentana(QMainWindow):
         self.txt_primer_numero = QLineEdit(self)
         self.txt_primer_numero.move(150, 30)
         self.txt_primer_numero.setFixedWidth(200)
+        self.txt_primer_numero.setValidator(QDoubleValidator())
 
         self.lbl_segundo_numero = QLabel("Segundo numero:  ", self)
         self.lbl_segundo_numero.move(30, 80)
@@ -31,6 +33,7 @@ class CalculadoraVentana(QMainWindow):
         self.txt_segundo_numero = QLineEdit(self)
         self.txt_segundo_numero.move(150, 80)
         self.txt_segundo_numero.setFixedWidth(200)
+        self.txt_segundo_numero.setValidator(QDoubleValidator())
 
         self.btn_calcular_suma = QPushButton("Sumar", self)
         self.btn_calcular_suma.move(150, 130)
@@ -46,39 +49,14 @@ class CalculadoraVentana(QMainWindow):
         self.txt_resultado.setEnabled(False)
 
     def sumar(self):
-        primer_numero = self.txt_primer_numero.text().strip()
-        segundo_numero = self.txt_segundo_numero.text().strip()
+        primer_numero = float(self.txt_primer_numero.text())
+        segundo_numero = float(self.txt_segundo_numero.text())
 
         mensaje = QMessageBox()
         mensaje.setWindowTitle("Informacion")
 
-        if len(primer_numero):
-            if len(segundo_numero):
-                try:
-                    primer_numero = float(primer_numero)
-                except:
-                    mensaje.setIcon(QMessageBox.Warning)
-                    mensaje.setText("El campo Primer numero Debe ser numerico")
-                    mensaje.exec_()
-                    return
-                try:
-                    segundo_numero = float(segundo_numero)
-                except:
-                    mensaje.setIcon(QMessageBox.Warning)
-                    mensaje.setText("El campo Segundo numero Debe ser numerico")
-                    mensaje.exec_()
-                    return
-                suma = primer_numero + segundo_numero
-                self.txt_resultado.setText(str(suma))
-
-            else:
-                mensaje.setIcon(QMessageBox.Warning)
-                mensaje.setText("El campo segundo numero es obligatorio")
-                mensaje.exec_()
-        else:
-            mensaje.setIcon(QMessageBox.Warning)
-            mensaje.setText("El campo primer numero es obligatorio")
-            mensaje.exec_()
+        suma = primer_numero + segundo_numero
+        self.txt_resultado.setText(str(suma))
 
 
 def main():
