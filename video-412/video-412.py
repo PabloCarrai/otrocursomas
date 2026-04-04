@@ -74,16 +74,35 @@ class CapturaDatosventana(QMainWindow):
         self.txt_color.setEnabled(False)
 
     def capturar_nombre(self):
-        pass
+        nombre, ok = QInputDialog.getText(
+            self, "Captura de datos", "Escriba su nombre:"
+        )
+        if ok:
+            nombre = nombre.strip()
+            if len(nombre):
+                self.txt_nombre.setText(nombre)
 
     def capturar_edad(self):
-        pass
+        edad, ok = QInputDialog.getInt(
+            self, "Captura de datos", "Escriba su edad:", 10, 1, 80
+        )
+        if ok:
+            self.txt_edad.setText(str(edad))
 
     def capturar_ahorro(self):
-        pass
+        ahorro, ok = QInputDialog.getDouble(
+            self, "Captura de datos", "Escriba la cantidad de ahorro", 0, 1, 1000000
+        )
+        if ok:
+            self.txt_ahorros.setText(str(ahorro))
 
     def capturar_color(self):
-        pass
+        colores = ["Rojo", "Verde", "Azul", "Blanco", "Negro", "Gris", "Amarillo"]
+        color, ok = QInputDialog.getItem(
+            self, "Captura de datos", "Elije un color", colores, 0, False
+        )
+        if ok:
+            self.txt_color.setText(color)
 
 
 def main():
