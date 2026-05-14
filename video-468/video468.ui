@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SeleccionVuelo</class>
+ <widget class="QMainWindow" name="SeleccionVuelo">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>309</width>
+    <height>240</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Seleccion Vuelo</string>
+  </property>
+  <widget class="QWidget" name="wdg_principal">
+   <widget class="QLabel" name="lbl_escoger_clase_vuelo">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>201</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Escoja la clase del vuelo:</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="rbn_primera_clase">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>211</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Primera Clase: $190USD</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="rbn_clase_negocio">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>221</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Clase Negocios: $130USD</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="rbn_clase_economica">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>221</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Clase Economica: $99USD</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_resultado_seleccion">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>170</y>
+      <width>301</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="mbr_principal">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>309</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="stt_principal"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
