@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>VentaVentana</class>
+ <widget class="QMainWindow" name="VentaVentana">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>480</width>
+    <height>640</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Venta</string>
+  </property>
+  <widget class="QWidget" name="wdg_principal">
+   <widget class="QLabel" name="lbl_seleccion">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>380</y>
+      <width>431</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="gpb_camisa">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>231</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Escoja la talla de su camisa:</string>
+    </property>
+    <widget class="QRadioButton" name="rbn_m">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>118</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>M</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="rbn_l">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>118</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>L</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="rbn_xl">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>118</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>XL</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="rbn_xll">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>120</y>
+       <width>118</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>XLL</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="gpb_metodo_pago">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>170</y>
+      <width>301</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Seleccione su metodo de pago:</string>
+    </property>
+    <widget class="QRadioButton" name="rbn_tarjeta_credito_debito">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>191</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Tarjeta Debito/Credito</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="rbn_pago_contra_entrega">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>181</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Pago Contraentrega</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="rbn_consigna_bancaria">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>171</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Consigna Bancaria</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="rbn_efectivo">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>120</y>
+       <width>118</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Efectivo</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="mbr_principal">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>480</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="stt_principal"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
