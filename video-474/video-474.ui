@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Heladeria</class>
+ <widget class="QMainWindow" name="Heladeria">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>480</width>
+    <height>640</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Heladeria</string>
+  </property>
+  <widget class="QWidget" name="wdg_principal">
+   <widget class="QLabel" name="lbl_titulo">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>30</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>24</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Menu</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_seleccion_helado">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>100</y>
+      <width>171</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Seleccione su helado:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_seleccion_bebida">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>100</y>
+      <width>171</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Seleccione su bebida:</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="gbx_helados">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>140</y>
+      <width>181</width>
+      <height>171</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Helados []</string>
+    </property>
+    <widget class="QCheckBox" name="chk_chocolate">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>131</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Chocolate $3</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="chk_vainilla">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>99</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Vainilla $2</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="chk_arequipe">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>151</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Arequipe $3</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="chk_ron_pasas">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>120</y>
+       <width>161</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Ron con pasas $3</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="gbx_bebida">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>140</y>
+      <width>111</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Bebidas []</string>
+    </property>
+    <widget class="QCheckBox" name="chk_cafe">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>99</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Cafe $2</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="chk_agua">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>99</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Agua $1</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="chk_soda">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>99</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Soda $3</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="lbl_total">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>360</y>
+      <width>131</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Total: $0</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="mbr_principal">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>480</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="stt_principal"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
