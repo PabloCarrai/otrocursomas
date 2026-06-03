@@ -81,7 +81,7 @@ class Ui_Heladeria(object):
         self.chk_chocolate.setText(_translate("Heladeria", "Chocolate $3"))
         self.chk_vainilla.setText(_translate("Heladeria", "Vainilla $2"))
         self.chk_arequipe.setText(_translate("Heladeria", "Arequipe $3"))
-        self.chk_ron_pasas.setText(_translate("Heladeria", "Ron con pasas $3"))
+        self.chk_ron_pasas.setText(_translate("Heladeria", "Ron con pasas $4"))
         self.gbx_bebida.setTitle(_translate("Heladeria", "Bebidas []"))
         self.chk_cafe.setText(_translate("Heladeria", "Cafe $2"))
         self.chk_agua.setText(_translate("Heladeria", "Agua $1"))
