@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Diagnosticos</class>
+ <widget class="QDialog" name="Diagnosticos">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>472</width>
+    <height>343</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Diagnosticos </string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>10</y>
+     <width>461</width>
+     <height>331</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="lay_ver_lista">
+    <property name="leftMargin">
+     <number>10</number>
+    </property>
+    <property name="topMargin">
+     <number>10</number>
+    </property>
+    <property name="rightMargin">
+     <number>10</number>
+    </property>
+    <item>
+     <layout class="QHBoxLayout" name="lay_hor_fuentes_diagnosticos" stretch="2,2">
+      <item>
+       <widget class="QLabel" name="lbl_seleccion_diagnostico">
+        <property name="text">
+         <string>Seleccione el Diagnostico:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QListWidget" name="lst_diagnosticos">
+        <property name="selectionMode">
+         <enum>QAbstractItemView::MultiSelection</enum>
+        </property>
+        <item>
+         <property name="text">
+          <string>Rayos X - $5</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Nivel de Azucar - $3</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Prueba de hemoglobina - $7</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Analisis de orina - $8</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Analisis de PSA - $10</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="lay_hor_diagnosticos_seleccionados" stretch="2,2">
+      <item>
+       <widget class="QLabel" name="lbl_diagnosticos_seleccionados">
+        <property name="text">
+         <string>Diagnosticos seleccionados: </string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QListWidget" name="lst_diagnosticos_seleccionados"/>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
